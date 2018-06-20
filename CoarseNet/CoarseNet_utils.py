@@ -12,7 +12,7 @@
 """
 
 
-from functools import partial
+from functools import partial,reduce
 from multiprocessing import Pool
 from MinutiaeNet_utils import *
 from scipy import misc, ndimage, signal, sparse
@@ -364,7 +364,7 @@ tra_ori_model = get_tra_ori()
 
 def get_maximum_img_size_and_names(dataset, sample_rate=None, max_size=None):
 
-    if isinstance(dataset, basestring):
+    if isinstance(dataset, str):
         dataset = [dataset]
     if sample_rate is None:
         sample_rate = [1]*len(dataset)
