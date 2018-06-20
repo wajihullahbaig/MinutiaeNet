@@ -89,11 +89,11 @@ def gabor_fn(ksize, sigma, theta, Lambda, psi, gamma):
     return gb_cos, gb_sin
 
 def gabor_bank(stride=2,Lambda=8):
+    block_sz = int(np.ceil(180.0/stride))
+    filters_cos = np.ones([25,25,block_sz], dtype=float)
+    filters_sin = np.ones([25,25,block_sz], dtype=float)
 
-    filters_cos = np.ones([25,25,180/stride], dtype=float)
-    filters_sin = np.ones([25,25,180/stride], dtype=float)
-
-    for n, i in enumerate(xrange(-90,90,stride)):
+    for n, i in enumerate(range(-90,90,stride)):
         theta = i*np.pi/180.
         kernel_cos, kernel_sin = gabor_fn((24,24),4.5, -theta, Lambda, 0, 0.5)
         filters_cos[..., n] = kernel_cos
@@ -122,7 +122,7 @@ def gausslabel(length=180, stride=2):
     label = np.reshape(np.arange(stride/2, length, stride), [1,1,-1,1])
     y = np.reshape(np.arange(stride/2, length, stride), [1,1,1,-1])
     delta = np.array(np.abs(label - y), dtype=int)
-    delta = np.minimum(delta, length-delta)+length/2
+    delta = np.minimum(delta, length-delta)+int(length/2)
     return gaussian_pdf[delta]
 
 def angle_delta(A, B, max_D=np.pi*2):
