@@ -61,7 +61,7 @@ plot_confusion_matrix(cm, cm_plot_labels, title='Confusion Matrix')
 # or this
 import cv2
 
-image = cv2.imread('../Dataset/samples/m2.jpg')
+image = cv2.imread('../Dataset/samples/patch.jpg')
 image = cv2.resize(image, dsize=(224, 224),interpolation=cv2.INTER_NEAREST)
 image = np.expand_dims(image, axis=0)
 
