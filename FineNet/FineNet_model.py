@@ -204,7 +204,7 @@ def FineNetmodel(num_classes = 2, pretrained_path = None, input_shape = None):
 
     # Load weights
     if pretrained_path != None:
-        print 'Loading FineNet weights from %s'%(pretrained_path)
+        print ('Loading FineNet weights from %s'%(pretrained_path))
         model.load_weights(pretrained_path)
 
     return model
