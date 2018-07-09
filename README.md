@@ -1,4 +1,4 @@
-# Robust Minutiae Extractor: Integrating Deep Networks and Fingerprint Domain Knowledge - Python3 compatible (In progress)
+# Robust Minutiae Extractor: Integrating Deep Networks and Fingerprint Domain Knowledge - Python3 compatible
 
 By Dinh-Luan Nguyen, Kai Cao and Anil K.Jain
 
